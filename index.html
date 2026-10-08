@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hora do Pão | Padaria e restaurante em Lagoa Nova, Natal</title>
+  <meta name="description" content="Padaria e restaurante em Lagoa Nova, Natal/RN. Café da manhã, almoço e jantar no buffet, pão quente o dia inteiro, delivery e retirada.">
+  <meta name="theme-color" content="#170D07">
+  <meta property="og:title" content="Hora do Pão | Padaria e restaurante em Natal">
+  <meta property="og:description" content="Toda hora é hora do pão. Café da manhã, almoço e jantar em Lagoa Nova.">
+  <meta property="og:image" content="assets/img/paes.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- Espiga da marca, reutilizada pelo site -->
+  <svg width="0" height="0" class="sr-only" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="espiga" viewBox="0 0 120 28">
+        <g fill="currentColor">
+          <ellipse cx="8" cy="14" rx="8" ry="3.4"/>
+          <ellipse cx="22" cy="8" rx="8" ry="3.2" transform="rotate(-24 22 8)"/>
+          <ellipse cx="22" cy="20" rx="8" ry="3.2" transform="rotate(24 22 20)"/>
+          <ellipse cx="38" cy="8" rx="8" ry="3.2" transform="rotate(-24 38 8)"/>
+          <ellipse cx="38" cy="20" rx="8" ry="3.2" transform="rotate(24 38 20)"/>
+          <ellipse cx="54" cy="8" rx="8" ry="3.2" transform="rotate(-24 54 8)"/>
+          <ellipse cx="54" cy="20" rx="8" ry="3.2" transform="rotate(24 54 20)"/>
+          <ellipse cx="70" cy="8.5" rx="7.5" ry="3" transform="rotate(-24 70 8.5)"/>
+          <ellipse cx="70" cy="19.5" rx="7.5" ry="3" transform="rotate(24 70 19.5)"/>
+          <ellipse cx="85" cy="9.5" rx="7" ry="2.8" transform="rotate(-24 85 9.5)"/>
+          <ellipse cx="85" cy="18.5" rx="7" ry="2.8" transform="rotate(24 85 18.5)"/>
+        </g>
+        <path d="M14 14H120" stroke="currentColor" stroke-width="1.6" fill="none"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo" id="topo">
+    <a class="topo__marca" href="#inicio" aria-label="Hora do Pão, início">
+      <img src="assets/img/logo.png" alt="Hora do Pão" width="2048" height="768">
+    </a>
+    <button class="topo__menu" type="button" aria-expanded="false" aria-controls="nav">
+      <span class="sr-only">Abrir menu</span>
+      <span class="topo__menu-linha" aria-hidden="true"></span>
+      <span class="topo__menu-linha" aria-hidden="true"></span>
+    </button>
+    <nav class="nav" id="nav" aria-label="Seções do site">
+      <a href="#dia">O dia</a>
+      <a href="#vitrine">Vitrine</a>
+      <a href="#pedido">Pedido</a>
+      <a href="#casa">A casa</a>
+      <a href="#visite">Visite</a>
+      <a class="botao botao--ouro nav__pedir" href="https://wa.me/5584992081542" target="_blank" rel="noopener">Pedir pelo WhatsApp</a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="inicio">
+      <video class="hero__video" muted loop playsinline preload="metadata" poster="assets/img/hero-poster.jpg" aria-hidden="true">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero__sombra" aria-hidden="true"></div>
+
+      <div class="hero__centro">
+        <img class="hero__logo" src="assets/img/logo.png" alt="Hora do Pão" width="2048" height="768" fetchpriority="high">
+        <h1 class="hero__lema">Toda hora é hora do pão</h1>
+
+        <p class="hero__agora" aria-live="polite">
+          <span class="hero__relogio" id="hero-relogio">06:00</span>
+          <span class="hero__fase">
+            <span id="hero-fase-titulo">Em Natal, a padaria abre às 6h.</span>
+            <span id="hero-fase-texto">Café da manhã, almoço e jantar no buffet, e pão quente o dia inteiro.</span>
+          </span>
+        </p>
+
+        <div class="hero__acoes">
+          <a class="botao botao--ouro" href="https://wa.me/5584992081542" target="_blank" rel="noopener">Pedir pelo WhatsApp</a>
+          <a class="botao botao--linha" href="#dia">Ver o dia na padaria</a>
+        </div>
+      </div>
+
+      <div class="hero__rodape">
+        <p class="status" id="status-hero"><span class="status__ponto" aria-hidden="true"></span><span class="status__texto">Seg a sex, das 6h às 21h</span></p>
+        <p class="hero__onde">Av. Romualdo Galvão, 1454, Lagoa Nova</p>
+      </div>
+    </section>
+
+    <!-- ================= O DIA ================= -->
+    <section class="dia" id="dia" data-fase="madrugada">
+      <div class="dia__abre largura">
+        <h2 class="titulo">O dia na padaria</h2>
+        <p class="dia__intro">Das 6 da manhã às 9 da noite a mesa muda de cara. Role a página e o relógio anda junto.</p>
+      </div>
+
+      <div class="dia__grade largura">
+        <div class="relogio-trilho" id="relogio-trilho">
+        <aside class="relogio" aria-hidden="true">
+          <svg class="relogio__face" viewBox="0 0 200 200">
+            <circle class="relogio__aro" cx="100" cy="100" r="96"/>
+            <g class="relogio__marcas" id="relogio-marcas"></g>
+            <line class="relogio__hora" id="ponteiro-hora" x1="100" y1="100" x2="100" y2="52"/>
+            <line class="relogio__min" id="ponteiro-min" x1="100" y1="100" x2="100" y2="24"/>
+            <circle class="relogio__eixo" cx="100" cy="100" r="4.5"/>
+          </svg>
+          <p class="relogio__leitura"><span id="relogio-digital">05:00</span><span id="relogio-fase">O forno</span></p>
+        </aside>
+        </div>
+
+        <div class="dia__lista" id="dia-lista">
+
+          <article id="hora-05" class="momento" data-hora="5" data-fase="madrugada" data-nome="O forno">
+            <div class="momento__texto">
+              <p class="momento__hora">05h</p>
+              <h3 class="momento__titulo">O forno acende antes da cidade</h3>
+              <p>Quando a porta abre, às 6h, o pão francês já está no cesto. E continua saindo ao longo do dia, junto com as bolachas e os pães doces.</p>
+              <ul class="momento__itens">
+                <li>Pão francês</li>
+                <li>Pães doces e recheados</li>
+                <li>Bolachas da casa</li>
+              </ul>
+            </div>
+            <figure class="momento__foto"><img src="assets/img/paes.jpg" alt="Cesto de pão francês recém-saído do forno" loading="lazy" width="1200" height="800"></figure>
+          </article>
+
+          <article id="hora-06" class="momento" data-hora="6" data-fase="manha" data-nome="Café da manhã">
+            <div class="momento__texto">
+              <p class="momento__hora">06h</p>
+              <h3 class="momento__titulo">Café da manhã no buffet</h3>
+              <p>Você monta o prato do seu jeito: o que é da terra, o que é de padaria e café passado na hora. Dá para comer com calma no salão ou levar.</p>
+              <ul class="momento__itens">
+                <li>Cuscuz, tapioca e queijo coalho</li>
+                <li>Pães, bolos e frutas</li>
+                <li>Café Santa Clara</li>
+              </ul>
+            </div>
+            <figure class="momento__foto"><img src="assets/img/cafe-da-manha.jpg" alt="Mesa de café da manhã com pão, cuscuz, tapioca, queijo coalho e frutas" loading="lazy" width="960" height="1200"></figure>
+          </article>
+
+          <article id="hora-11" class="momento" data-hora="11" data-fase="almoco" data-nome="Almoço">
+            <div class="momento__texto">
+              <p class="momento__hora">11h</p>
+              <h3 class="momento__titulo">Almoço de todo dia</h3>
+              <p>O buffet troca o café pelas panelas: carnes, legumes, saladas e os acompanhamentos de casa. Na terça, a feijoada é a dona do balcão.</p>
+              <ul class="momento__itens">
+                <li>Buffet com carnes e vegetais</li>
+                <li>Terça é dia de feijoada</li>
+                <li>Para comer aqui ou levar</li>
+              </ul>
+            </div>
+            <figure class="momento__foto momento__foto--dupla">
+              <img src="assets/img/feijoada.jpg" alt="Feijoada na panela de barro com arroz, couve e laranja" loading="lazy" width="960" height="1200">
+              <img src="assets/img/salao.jpg" alt="Salão da Hora do Pão, com mesas de madeira e o buffet ao fundo" loading="lazy" width="746" height="725">
+            </figure>
+          </article>
+
+          <article id="hora-15" class="momento" data-hora="15" data-fase="tarde" data-nome="Café da tarde">
+            <div class="momento__texto">
+              <p class="momento__hora">15h</p>
+              <h3 class="momento__titulo">A pausa do café</h3>
+              <p>Hora de sentar, pedir um café e escolher o doce na vitrine. As tortas e o pudim também saem inteiros, para a sobremesa de casa.</p>
+              <ul class="momento__itens">
+                <li>Tortas doces</li>
+                <li>Pudim de leite</li>
+                <li>Café coado e espresso</li>
+              </ul>
+            </div>
+            <figure class="momento__foto momento__foto--dupla">
+              <img src="assets/img/pudim.jpg" alt="Pudim de leite com calda de caramelo e fatia de torta" loading="lazy" width="960" height="1200">
+              <img src="assets/img/cafe.jpg" alt="Xícara de café Santa Clara em uma mesa do salão" loading="lazy" width="673" height="637">
+            </figure>
+          </article>
+
+          <article id="hora-18" class="momento" data-hora="18" data-fase="noite" data-nome="Jantar" data-fim="21">
+            <div class="momento__texto">
+              <p class="momento__hora">18h</p>
+              <h3 class="momento__titulo">Jantar sem pressa</h3>
+              <p>O dia fecha no buffet, com prato quente e pão para acompanhar. Servimos até as 21h durante a semana e até as 21h30 no sábado.</p>
+              <ul class="momento__itens">
+                <li>Buffet de jantar</li>
+                <li>Caldos e pratos quentes</li>
+                <li>Pão da última fornada</li>
+              </ul>
+            </div>
+            <figure class="momento__foto"><img src="assets/img/caldo.jpg" alt="Tigela de caldo quente com fatias de pão tostado" loading="lazy" width="960" height="1200"></figure>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VITRINE ================= -->
+    <section class="vitrine" id="vitrine">
+      <div class="largura">
+        <h2 class="titulo">Da vitrine para casa</h2>
+        <svg class="divisor" aria-hidden="true" viewBox="0 0 400 28" preserveAspectRatio="xMinYMid meet"><use href="#espiga" x="0" y="0" width="120" height="28"/><path d="M118 14H400" stroke="currentColor" stroke-width="1.6"/></svg>
+
+        <ul class="vitrine__lista">
+          <li class="item">
+            <h3 class="item__nome">Pães</h3>
+            <p class="item__texto">Francês, de forma, doces e recheados. Saem do forno várias vezes ao dia.</p>
+            <p class="item__como">No balcão e no delivery</p>
+          </li>
+          <li class="item">
+            <h3 class="item__nome">Bolachas</h3>
+            <p class="item__texto">As de padaria de verdade, para acompanhar o café ou levar no pacote.</p>
+            <p class="item__como">No balcão</p>
+          </li>
+          <li class="item">
+            <h3 class="item__nome">Tortas</h3>
+            <p class="item__texto">Em fatia para a pausa da tarde, inteiras para aniversário e reunião de família.</p>
+            <p class="item__como">Inteiras sob encomenda</p>
+          </li>
+          <li class="item">
+            <h3 class="item__nome">Pudim</h3>
+            <p class="item__texto">De leite, com calda de caramelo. Em fatia no salão ou inteiro para a sua mesa.</p>
+            <p class="item__como">Inteiro sob encomenda</p>
+          </li>
+          <li class="item">
+            <h3 class="item__nome">Buffet</h3>
+            <p class="item__texto">Café da manhã, almoço e jantar, todos os dias. Sirva-se no salão ou monte para viagem.</p>
+            <p class="item__como">No salão e para levar</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= PEDIDO ================= -->
+    <section class="pedido" id="pedido">
+      <div class="largura pedido__grade">
+        <div class="pedido__texto">
+          <h2 class="titulo">Peça sem sair de casa</h2>
+          <p>Escreva o que você quer e o pedido chega pronto no nosso WhatsApp. A gente confirma valores, horário e forma de pagamento por lá.</p>
+          <p>Prefere aplicativo? O cardápio de delivery também está no iFood.</p>
+          <a class="botao botao--linha-escura" href="https://www.ifood.com.br/delivery/natal-rn/hora-do-pao-padaria-e-restaurante-lagoa-nova/bbb36d8f-8e2b-4144-b523-37122ae760ab" target="_blank" rel="noopener">Pedir pelo iFood</a>
+        </div>
+
+        <form class="form" id="form-pedido" novalidate>
+          <div class="campo">
+            <label for="p-nome">Seu nome</label>
+            <input id="p-nome" name="nome" type="text" autocomplete="given-name" required>
+            <p class="campo__erro" id="erro-nome" hidden>Informe seu nome para a gente saber quem está pedindo.</p>
+          </div>
+          <div class="campo">
+            <label for="p-itens">O que você quer pedir</label>
+            <textarea id="p-itens" name="itens" rows="4" placeholder="Ex.: 10 pães franceses, 1 pudim inteiro" required></textarea>
+            <p class="campo__erro" id="erro-itens" hidden>Escreva pelo menos um item do pedido.</p>
+          </div>
+          <fieldset class="campo campo--opcoes">
+            <legend>Como você quer receber</legend>
+            <label class="opcao"><input type="radio" name="modo" value="Retirar na padaria" checked><span>Retirar na padaria</span></label>
+            <label class="opcao"><input type="radio" name="modo" value="Entrega"><span>Entrega</span></label>
+          </fieldset>
+          <div class="campo">
+            <label for="p-quando">Para quando <span class="campo__opcional">(opcional)</span></label>
+            <input id="p-quando" name="quando" type="text" placeholder="Ex.: hoje às 17h, sábado de manhã">
+          </div>
+          <button class="botao botao--ouro form__enviar" type="submit">Enviar pedido pelo WhatsApp</button>
+          <p class="form__nota">Nada fica salvo neste site. O botão abre o WhatsApp com a mensagem já escrita.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= A CASA ================= -->
+    <section class="casa" id="casa">
+      <div class="largura casa__grade">
+        <div class="casa__texto">
+          <h2 class="titulo">Uma padaria de bairro, com mesa posta</h2>
+          <p>A Hora do Pão fica em Lagoa Nova, na Romualdo Galvão. É padaria e é restaurante: tem quem passe só para levar o pão e tem quem fique para o almoço.</p>
+          <p>O salão é de madeira clara e mesa com número, o buffet fica à vista e o café é Santa Clara. Sem cerimônia.</p>
+          <p class="casa__prova">No Facebook, 90% de quem avaliou recomenda a casa, em 373 avaliações. No TripAdvisor, a nota é 4,1 de 5.</p>
+        </div>
+        <div class="casa__fotos">
+          <img class="casa__foto casa__foto--a" src="assets/img/salao.jpg" alt="Salão com mesas de madeira e pilar escrito Buffet" loading="lazy" width="746" height="725">
+          <img class="casa__foto casa__foto--b" src="assets/img/letreiro.jpg" alt="Letreiro oval da Hora do Pão na fachada" loading="lazy" width="480" height="528">
+          <img class="casa__foto casa__foto--c" src="assets/img/cafe.jpg" alt="Café servido em xícara Santa Clara" loading="lazy" width="673" height="637">
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VISITE ================= -->
+    <section class="visite" id="visite">
+      <div class="largura visite__grade">
+        <div class="visite__info">
+          <h2 class="titulo">Passe aqui</h2>
+          <p class="status status--grande" id="status-visite"><span class="status__ponto" aria-hidden="true"></span><span class="status__texto">Confira os horários abaixo</span></p>
+
+          <table class="horarios">
+            <caption class="sr-only">Horário de funcionamento</caption>
+            <tbody>
+              <tr data-dias="1,2,3,4,5"><th scope="row">Segunda a sexta</th><td>6h às 21h</td></tr>
+              <tr data-dias="6"><th scope="row">Sábado</th><td>6h às 21h30</td></tr>
+              <tr data-dias="0"><th scope="row">Domingo</th><td>6h30 às 20h30</td></tr>
+            </tbody>
+          </table>
+
+          <address class="visite__endereco">
+            Av. Romualdo Galvão, 1454<br>
+            Lagoa Nova, Natal/RN<br>
+            <a href="tel:+558432065566">(84) 3206-5566</a><br>
+            <a href="https://wa.me/5584992081542" target="_blank" rel="noopener">WhatsApp (84) 99208-1542</a>
+          </address>
+
+          <div class="visite__acoes">
+            <a class="botao botao--ouro" href="https://share.google/lMcc5gA6wHvhOMpHn" target="_blank" rel="noopener">Abrir no mapa</a>
+            <a class="botao botao--linha" href="tel:+558432065566">Ligar para a padaria</a>
+          </div>
+        </div>
+
+        <div class="visite__mapa">
+          <iframe title="Mapa: Hora do Pão, Av. Romualdo Galvão, 1454, Lagoa Nova" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Hora+do+P%C3%A3o+Padaria+Av.+Romualdo+Galv%C3%A3o+1454+Lagoa+Nova+Natal+RN&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="largura rodape__grade">
+      <img class="rodape__logo" src="assets/img/logo.png" alt="Hora do Pão" loading="lazy" width="2048" height="768">
+      <p class="rodape__lema">Toda hora é hora do pão.</p>
+      <ul class="rodape__links">
+        <li><a href="https://www.instagram.com/horadopao/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/horadopaorn/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://wa.me/5584992081542" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://www.ifood.com.br/delivery/natal-rn/hora-do-pao-padaria-e-restaurante-lagoa-nova/bbb36d8f-8e2b-4144-b523-37122ae760ab" target="_blank" rel="noopener">iFood</a></li>
+      </ul>
+      <p class="rodape__fim">Hora do Pão Padaria e Restaurante, Natal/RN.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
