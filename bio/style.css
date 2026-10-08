@@ -128,9 +128,9 @@ img {
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 @keyframes levitar-pao {
-  0% { transform: rotate(-24deg) translateY(0) scale(0.98); }
-  50% { transform: rotate(-18deg) translateY(-10px) scale(1.03); }
-  100% { transform: rotate(-24deg) translateY(0) scale(0.98); }
+  0% { transform: rotate(24deg) translateY(0) scale(0.98); }
+  50% { transform: rotate(18deg) translateY(-10px) scale(1.03); }
+  100% { transform: rotate(24deg) translateY(0) scale(0.98); }
 }
 @keyframes levitar-pudim {
   0% { transform: rotate(14deg) translateY(0) scale(0.98); }
@@ -160,14 +160,9 @@ img {
   border: 1px solid rgba(245, 185, 30, 0.35);
   backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
 }
-.boas-vindas__ponto { width: 8px; height: 8px; border-radius: 50%; background: #ffe08a; flex: none; }
-.boas-vindas__status[data-aberto="sim"] .boas-vindas__ponto { background: #7ddc7a; animation: pulso 2.4s infinite; }
-.boas-vindas__status[data-aberto="nao"] .boas-vindas__ponto { background: #ff8a5c; }
-@keyframes pulso {
-  0% { box-shadow: 0 0 0 0 rgba(125, 220, 122, 0.6); }
-  70% { box-shadow: 0 0 0 8px rgba(125, 220, 122, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(125, 220, 122, 0); }
-}
+.boas-vindas__relogio { width: 14px; height: 14px; flex: none; fill: none; stroke: var(--gema); stroke-width: 2.4; stroke-linecap: round; }
+.boas-vindas__status[data-aberto="nao"] { color: var(--miolo); }
+.boas-vindas__status[data-aberto="nao"] .boas-vindas__relogio { stroke: var(--miolo); opacity: 0.75; }
 
 /* =========================================================
    Faixas com a foto saltando para fora
@@ -193,16 +188,16 @@ img {
 }
 
 .faixa--whatsapp .faixa__fundo::before {
-  background-image: linear-gradient(to right, rgba(90, 46, 23, 0.2) 0%, rgba(42, 22, 11, 0.88) 55%, rgba(18, 10, 5, 0.98) 100%), url("../assets/img/paes.jpg");
+  background-image: radial-gradient(circle at 16% 62%, rgba(227, 166, 63, 0.42) 0%, rgba(227, 166, 63, 0) 46%), linear-gradient(to right, #5a2e17 0%, #2a160b 55%, #120a05 100%);
 }
 .faixa--site .faixa__fundo::before {
-  background-image: linear-gradient(to left, rgba(227, 166, 63, 0.2) 0%, rgba(150, 84, 24, 0.9) 55%, rgba(90, 46, 23, 0.98) 100%), url("../assets/img/cafe-da-manha.jpg");
+  background-image: radial-gradient(circle at 82% 62%, rgba(255, 221, 140, 0.5) 0%, rgba(255, 221, 140, 0) 48%), linear-gradient(to left, #c98a2c 0%, #965418 55%, #5a2e17 100%);
 }
 .faixa--ifood .faixa__fundo::before {
-  background-image: linear-gradient(to right, rgba(168, 103, 45, 0.2) 0%, rgba(110, 56, 22, 0.9) 55%, rgba(48, 24, 11, 0.98) 100%), url("../assets/img/feijoada.jpg");
+  background-image: radial-gradient(circle at 16% 62%, rgba(245, 185, 30, 0.38) 0%, rgba(245, 185, 30, 0) 46%), linear-gradient(to right, #a8672d 0%, #6e3816 55%, #30180b 100%);
 }
 .faixa--mapa .faixa__fundo::before {
-  background-image: linear-gradient(to left, rgba(90, 46, 23, 0.2) 0%, rgba(58, 29, 14, 0.9) 55%, rgba(23, 13, 7, 0.98) 100%), url("../assets/img/salao.jpg");
+  background-image: radial-gradient(circle at 84% 62%, rgba(227, 166, 63, 0.36) 0%, rgba(227, 166, 63, 0) 46%), linear-gradient(to left, #6b3719 0%, #3a1d0e 55%, #170d07 100%);
 }
 
 .faixa__foto { position: absolute; bottom: 0; width: 118px; height: 170px; overflow: visible; pointer-events: none; z-index: 2; }
@@ -305,8 +300,8 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .flutua, .flutua__img, .boas-vindas__ponto { animation: none !important; }
-  .flutua__img--pao { transform: rotate(-24deg); }
+  .flutua, .flutua__img { animation: none !important; }
+  .flutua__img--pao { transform: rotate(24deg); }
   .flutua__img--pudim { transform: rotate(14deg); }
   .faixa, .faixa__fundo::before, .faixa__foto img, .faixa__botao { transition: none; }
 }
