@@ -266,7 +266,10 @@ a { color: inherit; }
 /* O trilho termina antes do fim da grade: o relógio trava alinhado ao
    último horário em vez de descer até o rodapé da seção. O valor exato
    vem do JS; o calc é a aproximação para quando ele não roda. */
-.relogio-trilho { padding-bottom: var(--trava, calc(46vh - 11rem)); }
+.relogio-trilho {
+  padding-top: var(--trava-inicio, calc(46vh - 11rem));
+  padding-bottom: var(--trava, calc(46vh - 11rem));
+}
 
 .relogio {
   position: sticky; top: calc(50vh - 11rem);

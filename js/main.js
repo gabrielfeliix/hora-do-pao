@@ -147,14 +147,14 @@
     if (secaoDia.dataset.fase !== atual.dataset.fase) secaoDia.dataset.fase = atual.dataset.fase;
   }
 
-  // O relógio para de descer quando fica centrado no último horário;
+  // O relógio começa centrado no primeiro horário e para centrado no último;
   // a hora continua correndo porque depende só da rolagem.
   const trilho = document.getElementById('relogio-trilho');
   const relogio = trilho.querySelector('.relogio');
   function medirTrava() {
-    const ultimo = momentos[momentos.length - 1];
-    const folga = Math.max(0, (ultimo.offsetHeight - relogio.offsetHeight) / 2);
-    trilho.style.setProperty('--trava', `${folga}px`);
+    const folga = (momento) => `${Math.max(0, (momento.offsetHeight - relogio.offsetHeight) / 2)}px`;
+    trilho.style.setProperty('--trava-inicio', folga(momentos[0]));
+    trilho.style.setProperty('--trava', folga(momentos[momentos.length - 1]));
   }
   medirTrava();
   window.addEventListener('resize', medirTrava);

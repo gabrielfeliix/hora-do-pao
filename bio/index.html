@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hora do Pão | Links</title>
+  <meta name="description" content="Hora do Pão, padaria e restaurante em Lagoa Nova, Natal. Peça pelo WhatsApp ou iFood, veja o site e saiba como chegar.">
+  <meta name="theme-color" content="#170D07">
+  <meta property="og:title" content="Hora do Pão | Padaria e restaurante em Natal">
+  <meta property="og:description" content="Toda hora é hora do pão. Pedidos, delivery e como chegar.">
+  <meta property="og:image" content="../assets/img/paes.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="../assets/img/bio/cesto.png" fetchpriority="high">
+  <link rel="preload" as="image" href="../assets/img/logo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="../assets/img/bio/pao.png">
+  <link rel="preload" as="image" href="../assets/img/bio/pudim.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Faixas onduladas do fundo -->
+  <div class="fundo-ondas" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M-100 120 C 300 280, 700 -40, 1540 220" stroke="rgba(255, 255, 255, 0.07)" stroke-width="65"/>
+      <path d="M-100 240 C 400 420, 800 60, 1540 380" stroke="rgba(245, 185, 30, 0.08)" stroke-width="45"/>
+      <path d="M-100 420 C 350 580, 850 200, 1540 520" stroke="rgba(245, 185, 30, 0.12)" stroke-width="55"/>
+      <path d="M-100 580 C 450 720, 750 350, 1540 680" stroke="rgba(90, 46, 23, 0.14)" stroke-width="70"/>
+      <path d="M-100 700 C 320 850, 880 500, 1540 820" stroke="rgba(255, 255, 255, 0.1)" stroke-width="50"/>
+    </svg>
+  </div>
+
+  <main class="bio">
+
+    <header class="bio-topo">
+      <div class="forno">
+        <div class="forno__arco"></div>
+        <img class="forno__cesto" src="../assets/img/bio/cesto.png" alt="Cesto de pão francês" width="720" height="611" fetchpriority="high" decoding="async">
+
+        <div class="flutua flutua--esq" aria-hidden="true">
+          <img class="flutua__img flutua__img--pao" src="../assets/img/bio/pao.png" alt="" width="320" height="250" decoding="async">
+        </div>
+      </div>
+
+      <div class="placa-area">
+        <h1 class="placa"><img src="../assets/img/logo.png" alt="Hora do Pão" width="1600" height="600" fetchpriority="high" decoding="async"></h1>
+
+        <div class="flutua flutua--dir" aria-hidden="true">
+          <img class="flutua__img flutua__img--pudim" src="../assets/img/bio/pudim.png" alt="" width="320" height="255" decoding="async">
+        </div>
+      </div>
+
+      <div class="boas-vindas">
+        <p class="boas-vindas__lema">Toda hora é hora do pão</p>
+        <p class="boas-vindas__texto">Café da manhã, almoço e jantar no buffet, com delivery e retirada em Lagoa Nova, Natal</p>
+        <p class="boas-vindas__status" id="status"><span class="boas-vindas__ponto" aria-hidden="true"></span><span id="status-texto">Aberto todos os dias, a partir das 6h</span></p>
+      </div>
+    </header>
+
+    <nav class="links" aria-label="Links da Hora do Pão">
+
+      <a class="faixa faixa--whatsapp" href="https://wa.me/5584992081542?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20na%20Hora%20do%20P%C3%A3o." target="_blank" rel="noopener noreferrer">
+        <div class="faixa__fundo"></div>
+        <div class="faixa__foto faixa__foto--esq"><img src="../assets/img/bio/celular.png" alt="" width="236" height="480" decoding="async"></div>
+        <div class="faixa__conteudo faixa__conteudo--dir">
+          <span class="faixa__tag">Pedir online</span>
+          <span class="faixa__titulo">Faça seu pedido pelo WhatsApp</span>
+          <span class="faixa__botao">Peça agora</span>
+        </div>
+      </a>
+
+      <a class="faixa faixa--site" href="../">
+        <div class="faixa__fundo"></div>
+        <div class="faixa__foto faixa__foto--dir faixa__foto--larga"><img src="../assets/img/bio/cafe.png" alt="" width="480" height="352" loading="lazy" decoding="async"></div>
+        <div class="faixa__conteudo faixa__conteudo--esq">
+          <span class="faixa__tag">A padaria</span>
+          <span class="faixa__titulo">O dia na Hora do Pão, do café ao jantar</span>
+          <span class="faixa__botao">Ver o site</span>
+        </div>
+      </a>
+
+      <a class="faixa faixa--ifood" href="https://www.ifood.com.br/delivery/natal-rn/hora-do-pao-padaria-e-restaurante-lagoa-nova/bbb36d8f-8e2b-4144-b523-37122ae760ab" target="_blank" rel="noopener noreferrer">
+        <div class="faixa__fundo"></div>
+        <div class="faixa__foto faixa__foto--esq"><img src="../assets/img/bio/sacola.png" alt="" width="259" height="480" loading="lazy" decoding="async"></div>
+        <div class="faixa__conteudo faixa__conteudo--dir">
+          <span class="faixa__tag">Delivery</span>
+          <span class="faixa__titulo">Receba em casa pelo iFood</span>
+          <span class="faixa__botao">Abrir o iFood</span>
+        </div>
+      </a>
+
+      <a class="faixa faixa--mapa" href="https://share.google/lMcc5gA6wHvhOMpHn" target="_blank" rel="noopener noreferrer">
+        <div class="faixa__fundo"></div>
+        <div class="faixa__foto faixa__foto--dir"><img src="../assets/img/bio/pino.png" alt="" width="288" height="480" loading="lazy" decoding="async"></div>
+        <div class="faixa__conteudo faixa__conteudo--esq">
+          <span class="faixa__tag">Lagoa Nova</span>
+          <span class="faixa__titulo">Como chegar na padaria</span>
+          <span class="faixa__botao">Abrir o mapa</span>
+        </div>
+      </a>
+
+    </nav>
+
+    <footer class="bio-rodape">
+      <div class="selo" aria-hidden="true">
+        <svg viewBox="0 0 96 28"><g fill="currentColor"><ellipse cx="8" cy="14" rx="8" ry="3.4"/><ellipse cx="22" cy="8" rx="8" ry="3.2" transform="rotate(-24 22 8)"/><ellipse cx="22" cy="20" rx="8" ry="3.2" transform="rotate(24 22 20)"/><ellipse cx="38" cy="8" rx="8" ry="3.2" transform="rotate(-24 38 8)"/><ellipse cx="38" cy="20" rx="8" ry="3.2" transform="rotate(24 38 20)"/><ellipse cx="54" cy="8" rx="8" ry="3.2" transform="rotate(-24 54 8)"/><ellipse cx="54" cy="20" rx="8" ry="3.2" transform="rotate(24 54 20)"/><ellipse cx="70" cy="8.5" rx="7.5" ry="3" transform="rotate(-24 70 8.5)"/><ellipse cx="70" cy="19.5" rx="7.5" ry="3" transform="rotate(24 70 19.5)"/></g><path d="M14 14H96" stroke="currentColor" stroke-width="1.6"/></svg>
+      </div>
+      <p class="bio-rodape__nome">Hora do Pão • Padaria e Restaurante</p>
+      <p class="bio-rodape__fim">Av. Romualdo Galvão, 1454, Lagoa Nova, Natal/RN</p>
+    </footer>
+
+  </main>
+
+  <script>
+    // Status ao vivo, pela hora de Natal
+    (function () {
+      var HORARIOS = { 0: [6.5, 20.5], 1: [6, 21], 2: [6, 21], 3: [6, 21], 4: [6, 21], 5: [6, 21], 6: [6, 21.5] };
+      var el = document.getElementById('status');
+      var texto = document.getElementById('status-texto');
+      function h(v) { var c = Math.floor(v), m = Math.round((v - c) * 60); return m ? c + 'h' + String(m).padStart(2, '0') : c + 'h'; }
+      function atualizar() {
+        try {
+          var partes = {};
+          new Intl.DateTimeFormat('en-US', { timeZone: 'America/Fortaleza', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+            .formatToParts(new Date()).forEach(function (p) { partes[p.type] = p.value; });
+          var dia = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(partes.weekday);
+          var agora = Number(partes.hour) + Number(partes.minute) / 60;
+          var hoje = HORARIOS[dia];
+          if (agora < hoje[0]) { el.dataset.aberto = 'nao'; texto.textContent = 'Fechado agora • Abre às ' + h(hoje[0]); }
+          else if (agora >= hoje[1]) { el.dataset.aberto = 'nao'; texto.textContent = 'Fechado agora • Abre amanhã às ' + h(HORARIOS[(dia + 1) % 7][0]); }
+          else { el.dataset.aberto = 'sim'; texto.textContent = 'Aberto agora • Até as ' + h(hoje[1]); }
+        } catch (e) { /* mantém o texto fixo */ }
+      }
+      atualizar();
+      setInterval(atualizar, 30000);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+/* =========================================================
+   Hora do Pão: página de links para a bio do Instagram
+   Mesma paleta do site: forno, casca, ouro, gema, miolo.
+   ========================================================= */
+:root {
+  --forno: #170d07;
+  --forno-claro: #2a160b;
+  --casca: #5a2e17;
+  --madeira: #a8672d;
+  --ouro: #e3a63f;
+  --gema: #f5b91e;
+  --miolo: #f2dfb8;
+  --farinha: #fcf7ec;
+
+  --fonte-marca: "Cinzel", "Trajan Pro", "Times New Roman", serif;
+  --fonte-texto: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+
+  --raio: 18px;
+  --sombra: 0 20px 45px -10px rgba(23, 13, 7, 0.38);
+  --suave: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { overflow-x: hidden; max-width: 100%; width: 100%; }
+
+body {
+  /* Do forno escuro à farinha, descendo com a rolagem */
+  background: linear-gradient(180deg, #120a05 0%, #3a1d0e 18%, #b06a1c 44%, #f0c877 62%, var(--farinha) 82%, #ffffff 100%) no-repeat;
+  color: var(--forno-claro);
+  font-family: var(--fonte-texto);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  display: flex; justify-content: center; align-items: flex-start;
+  min-height: 100dvh;
+  position: relative;
+}
+
+img {
+  max-width: 100%; height: auto; display: block;
+  user-select: none; -webkit-user-select: none; -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.fundo-ondas {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; max-height: 100dvh;
+  pointer-events: none; z-index: 0; overflow: hidden; opacity: 0.85;
+}
+.fundo-ondas svg { width: 100%; height: 100%; }
+
+.bio {
+  width: 100%; max-width: 480px;
+  padding: 40px 20px 64px;
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; z-index: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   Topo: a boca do forno, o cesto e a placa oval da fachada
+   ========================================================= */
+.bio-topo { width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 28px; }
+
+.forno {
+  position: relative;
+  width: calc(100% + 40px); margin: -40px -20px 0;
+  height: 310px;
+  display: flex; justify-content: center; align-items: flex-end;
+  overflow: visible;
+}
+
+.forno__arco {
+  position: absolute; top: 10px;
+  width: 240px; height: 265px;
+  border-radius: 120px 120px 0 0;
+  background: radial-gradient(circle at 50% 78%, #ffcf5a 0%, #e08a1c 30%, #8a3f12 62%, #2a1208 100%);
+  border: 8px solid #100804;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 26px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+.forno__arco::after {
+  content: ""; position: absolute; inset: 6px;
+  border-radius: 50% 50% 0 0;
+  border: 2px solid rgba(245, 185, 30, 0.45);
+  background-image: radial-gradient(circle at 50% 80%, rgba(255, 207, 90, 0.3) 15%, transparent 75%);
+  pointer-events: none;
+}
+
+.forno__cesto {
+  width: 262px; height: auto;
+  transform: translateY(-42px);
+  z-index: 2;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.45));
+}
+
+/* Placa oval: o letreiro da fachada, com o aro amarelo */
+.placa-area {
+  position: relative; z-index: 3;
+  margin-top: -68px;
+  width: 96%; max-width: 420px;
+  display: flex; justify-content: center; align-items: center;
+}
+.placa {
+  width: 100%;
+  padding: 16px 30px 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 35%, #4a2412 0%, #2a1309 70%, #1c0c05 100%);
+  border: 5px solid var(--gema);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5), inset 0 0 0 2px rgba(23, 13, 7, 0.55), inset 0 0 22px rgba(0, 0, 0, 0.5);
+}
+.placa img { width: 100%; filter: brightness(1.25); }
+
+/* =========================================================
+   Pão e pudim flutuando (entrada de cima + levitação)
+   ========================================================= */
+.flutua { position: absolute; pointer-events: none; z-index: 10; filter: drop-shadow(0 14px 24px rgba(23, 13, 7, 0.6)); }
+
+.flutua--esq { top: 96px; left: 8px; width: 92px; animation: descer 1.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.flutua--dir { top: -52px; right: -22px; width: 104px; animation: descer 1.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+.flutua__img { width: 100%; height: auto; backface-visibility: hidden; will-change: transform; }
+.flutua__img--pao { animation: levitar-pao 5.2s ease-in-out infinite alternate; }
+.flutua__img--pudim { animation: levitar-pudim 5.5s ease-in-out infinite alternate; }
+
+@keyframes descer {
+  0% { opacity: 0; transform: translateY(-90px) scale(0.18); }
+  75% { opacity: 1; transform: translateY(4px) scale(1.05); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes levitar-pao {
+  0% { transform: rotate(-24deg) translateY(0) scale(0.98); }
+  50% { transform: rotate(-18deg) translateY(-10px) scale(1.03); }
+  100% { transform: rotate(-24deg) translateY(0) scale(0.98); }
+}
+@keyframes levitar-pudim {
+  0% { transform: rotate(14deg) translateY(0) scale(0.98); }
+  50% { transform: rotate(8deg) translateY(-10px) scale(1.03); }
+  100% { transform: rotate(14deg) translateY(0) scale(0.98); }
+}
+
+/* ---------- Boas-vindas ---------- */
+.boas-vindas { padding: 0 12px; display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 18px; }
+
+.boas-vindas__lema {
+  font-family: var(--fonte-marca); font-size: 1.3rem; font-weight: 600;
+  color: #fff; line-height: 1.3; letter-spacing: 0.04em; margin-bottom: 6px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+.boas-vindas__texto {
+  font-size: 0.88rem; color: rgba(255, 255, 255, 0.94);
+  max-width: 38ch; line-height: 1.45; margin-bottom: 10px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.boas-vindas__status {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  color: #ffe08a;
+  background: rgba(23, 13, 7, 0.55);
+  padding: 5px 14px; border-radius: 20px;
+  border: 1px solid rgba(245, 185, 30, 0.35);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+}
+.boas-vindas__ponto { width: 8px; height: 8px; border-radius: 50%; background: #ffe08a; flex: none; }
+.boas-vindas__status[data-aberto="sim"] .boas-vindas__ponto { background: #7ddc7a; animation: pulso 2.4s infinite; }
+.boas-vindas__status[data-aberto="nao"] .boas-vindas__ponto { background: #ff8a5c; }
+@keyframes pulso {
+  0% { box-shadow: 0 0 0 0 rgba(125, 220, 122, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(125, 220, 122, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(125, 220, 122, 0); }
+}
+
+/* =========================================================
+   Faixas com a foto saltando para fora
+   ========================================================= */
+.links { display: flex; flex-direction: column; gap: 28px; width: 100%; margin-top: 20px; margin-bottom: 40px; }
+
+.faixa {
+  display: flex; position: relative;
+  width: 100%; height: 150px;
+  border-radius: var(--raio);
+  text-decoration: none;
+  box-shadow: var(--sombra);
+  transition: var(--suave);
+  overflow: visible; /* a foto precisa sair da faixa */
+}
+.faixa:focus-visible { outline: 3px solid var(--forno); outline-offset: 4px; }
+
+.faixa__fundo { position: absolute; inset: 0; border-radius: var(--raio); overflow: hidden; z-index: 1; border: 1px solid rgba(255, 255, 255, 0.16); }
+.faixa__fundo::before {
+  content: ""; position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faixa--whatsapp .faixa__fundo::before {
+  background-image: linear-gradient(to right, rgba(90, 46, 23, 0.2) 0%, rgba(42, 22, 11, 0.88) 55%, rgba(18, 10, 5, 0.98) 100%), url("../assets/img/paes.jpg");
+}
+.faixa--site .faixa__fundo::before {
+  background-image: linear-gradient(to left, rgba(227, 166, 63, 0.2) 0%, rgba(150, 84, 24, 0.9) 55%, rgba(90, 46, 23, 0.98) 100%), url("../assets/img/cafe-da-manha.jpg");
+}
+.faixa--ifood .faixa__fundo::before {
+  background-image: linear-gradient(to right, rgba(168, 103, 45, 0.2) 0%, rgba(110, 56, 22, 0.9) 55%, rgba(48, 24, 11, 0.98) 100%), url("../assets/img/feijoada.jpg");
+}
+.faixa--mapa .faixa__fundo::before {
+  background-image: linear-gradient(to left, rgba(90, 46, 23, 0.2) 0%, rgba(58, 29, 14, 0.9) 55%, rgba(23, 13, 7, 0.98) 100%), url("../assets/img/salao.jpg");
+}
+
+.faixa__foto { position: absolute; bottom: 0; width: 118px; height: 170px; overflow: visible; pointer-events: none; z-index: 2; }
+.faixa__foto--esq { left: 8px; }
+.faixa__foto--dir { right: 8px; }
+.faixa__foto--larga { width: 150px; right: 2px; }
+
+.faixa__foto img {
+  position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+  object-fit: contain; object-position: bottom center;
+  transform: scale(1.08) translateY(0); transform-origin: bottom center;
+  transition: var(--suave);
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4));
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+}
+.faixa__foto--larga img { -webkit-mask-image: none; mask-image: none; height: auto; bottom: 10px; }
+
+.faixa__conteudo {
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  height: 100%; position: relative; z-index: 3;
+}
+.faixa__conteudo--dir { margin-left: 134px; width: calc(100% - 134px); padding: 16px 10px 16px 14px; }
+.faixa__conteudo--esq { margin-right: 124px; width: calc(100% - 124px); padding: 16px 4px 16px 22px; }
+.faixa--site .faixa__conteudo--esq { margin-right: 148px; width: calc(100% - 148px); }
+
+.faixa__tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #ffe08a; margin-bottom: 4px; }
+.faixa__titulo {
+  font-size: 1.02rem; font-weight: 700; color: #fff;
+  margin-bottom: 8px; line-height: 1.2; letter-spacing: 0.01em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+}
+.faixa__botao {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 7px 15px; border-radius: 30px; display: inline-block;
+  transition: var(--suave);
+}
+.faixa--whatsapp .faixa__botao, .faixa--ifood .faixa__botao {
+  background: linear-gradient(90deg, #ffd155 0%, var(--gema) 100%); color: var(--forno);
+  box-shadow: 0 4px 12px rgba(245, 185, 30, 0.4);
+}
+.faixa--site .faixa__botao { background: #fff; color: var(--casca); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); }
+.faixa--mapa .faixa__botao { background: linear-gradient(90deg, var(--ouro) 0%, #c7801f 100%); color: var(--forno); box-shadow: 0 4px 12px rgba(227, 166, 63, 0.35); }
+
+/* Resposta ao toque e ao mouse: a faixa sobe e a foto salta */
+@media (hover: hover) {
+  .faixa:hover { transform: translateY(-4px); box-shadow: 0 22px 45px rgba(23, 13, 7, 0.45); }
+  .faixa:hover .faixa__fundo::before { transform: scale(1.06); }
+  .faixa:hover .faixa__foto img { transform: scale(1.13) translateY(-3px); }
+  .faixa:hover .faixa__botao { filter: brightness(1.08); }
+}
+.faixa:active { transform: translateY(-4px) scale(0.99); box-shadow: 0 22px 45px rgba(23, 13, 7, 0.45); transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1); }
+.faixa:active .faixa__fundo::before { transform: scale(1.06); }
+.faixa:active .faixa__foto img { transform: scale(1.13) translateY(-3px); }
+.faixa:active .faixa__botao { filter: brightness(1.08); }
+
+/* =========================================================
+   Rodapé
+   ========================================================= */
+.bio-rodape {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  width: 100%; border-top: 1px solid rgba(90, 46, 23, 0.16); padding-top: 32px;
+}
+.selo {
+  width: 56px; height: 56px; border-radius: 50%; margin-bottom: 16px;
+  background: linear-gradient(180deg, #3a1d0e 0%, #170d07 100%);
+  border: 2px solid var(--gema); color: var(--gema);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 16px rgba(23, 13, 7, 0.3);
+}
+.selo svg { width: 34px; height: auto; transform: rotate(-35deg); }
+.bio-rodape__nome { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--casca); margin-bottom: 6px; }
+.bio-rodape__fim { font-size: 0.72rem; color: #6b5548; }
+
+/* =========================================================
+   Telas maiores
+   ========================================================= */
+@media (min-width: 600px) {
+  .bio { max-width: 560px; padding: 56px 24px 72px; }
+  .bio-topo { margin-bottom: 36px; }
+  .forno { height: 350px; margin-top: -56px; }
+  .forno__arco { top: 12px; width: 270px; height: 300px; border-radius: 135px 135px 0 0; }
+  .forno__cesto { width: 296px; transform: translateY(-50px); }
+  .placa-area { margin-top: -82px; max-width: 460px; }
+  .flutua--esq { top: 118px; left: 34px; width: 116px; }
+  .flutua--dir { top: -64px; right: -34px; width: 130px; }
+  .boas-vindas__lema { font-size: 1.5rem; }
+  .boas-vindas__texto { font-size: 0.95rem; max-width: 42ch; }
+  .links { gap: 36px; }
+  .faixa { height: 165px; }
+  .faixa__foto { width: 128px; height: 185px; }
+  .faixa__foto--esq { left: 10px; }
+  .faixa__foto--dir { right: 10px; }
+  .faixa__foto--larga { width: 168px; right: 4px; }
+  .faixa__conteudo--dir { margin-left: 138px; width: calc(100% - 138px); padding: 20px 20px 20px 6px; }
+  .faixa__conteudo--esq { margin-right: 138px; width: calc(100% - 138px); padding: 20px 6px 20px 32px; }
+  .faixa--site .faixa__conteudo--esq { margin-right: 172px; width: calc(100% - 172px); }
+  .faixa__titulo { font-size: 1.22rem; margin-bottom: 10px; }
+  .faixa__botao { font-size: 0.72rem; padding: 9px 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flutua, .flutua__img, .boas-vindas__ponto { animation: none !important; }
+  .flutua__img--pao { transform: rotate(-24deg); }
+  .flutua__img--pudim { transform: rotate(14deg); }
+  .faixa, .faixa__fundo::before, .faixa__foto img, .faixa__botao { transition: none; }
+}
