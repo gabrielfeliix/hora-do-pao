@@ -165,7 +165,11 @@ a { color: inherit; }
   overflow: hidden;
   background: #000;
 }
-.hero__video { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+/* O primeiro quadro do vídeo fica parado por baixo dele: no fim do laço o
+   vídeo se dissolve nesse quadro em vez de pular de volta para o início. */
+.hero__fundo { position: absolute; inset: 0; z-index: -2; background: #000 url("../assets/img/hero-poster.jpg") center / cover no-repeat; }
+.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.2s ease-in-out; }
+.hero__video.is-saindo { opacity: 0; }
 .hero__sombra {
   position: absolute; inset: 0; z-index: -1;
   background:
@@ -210,12 +214,12 @@ a { color: inherit; }
 }
 
 /* Entrada: o letreiro acende, depois o resto aparece */
-.js .hero__logo { opacity: 0; filter: brightness(0.25) blur(6px); }
+.js .hero__logo { opacity: 0; filter: brightness(0.35) blur(8px); }
 .js .hero__lema, .js .hero__agora, .js .hero__acoes, .js .hero__rodape { opacity: 0; transform: translateY(0.75rem); }
-.js .hero__video { opacity: 0; }
+.js .hero__fundo { opacity: 0; }
 
-.js.pronto .hero__video { opacity: 1; transition: opacity 2.4s ease 0.3s; }
-.js.pronto .hero__logo { animation: acender 2.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s forwards; }
+.js.pronto .hero__fundo { opacity: 1; transition: opacity 3.2s ease-out 0.2s; }
+.js.pronto .hero__logo { animation: acender 2.8s cubic-bezier(0.33, 0, 0.2, 1) 0.3s forwards; }
 .js.pronto .hero__lema, .js.pronto .hero__agora, .js.pronto .hero__acoes, .js.pronto .hero__rodape {
   opacity: 1; transform: none; transition: opacity 0.9s ease, transform 0.9s ease;
 }
@@ -225,10 +229,8 @@ a { color: inherit; }
 .js.pronto .hero__rodape { transition-delay: 2.1s; }
 
 @keyframes acender {
-  0% { opacity: 0; filter: brightness(0.25) blur(6px); }
-  35% { opacity: 1; filter: brightness(0.7) blur(0); }
-  45% { filter: brightness(0.45); }
-  62% { filter: brightness(1.35); }
+  0% { opacity: 0; filter: brightness(0.35) blur(8px); }
+  55% { opacity: 1; filter: brightness(0.8) blur(0); }
   100% { opacity: 1; filter: brightness(1) blur(0); }
 }
 
@@ -459,6 +461,6 @@ a { color: inherit; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; transition-delay: 0s !important; }
   .js .hero__logo { opacity: 1; filter: none; }
-  .js .hero__video { opacity: 1; }
+  .js .hero__fundo { opacity: 1; }
   .js .hero__lema, .js .hero__agora, .js .hero__acoes, .js .hero__rodape { opacity: 1; transform: none; }
 }

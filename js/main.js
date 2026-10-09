@@ -81,6 +81,14 @@
   const video = document.querySelector('.hero__video');
   if (video && !menosMovimento) {
     video.play().catch(() => { /* sem autoplay, o pôster continua no lugar */ });
+    // Perto do fim, o vídeo se dissolve no primeiro quadro (que fica por
+    // baixo dele) e só reaparece depois de voltar ao início: sem corte seco.
+    const DISSOLVER = 1.4;
+    video.addEventListener('timeupdate', () => {
+      if (!video.duration) return;
+      const falta = video.duration - video.currentTime;
+      video.classList.toggle('is-saindo', falta < DISSOLVER);
+    });
   }
   requestAnimationFrame(() => requestAnimationFrame(() => doc.classList.add('pronto')));
 
