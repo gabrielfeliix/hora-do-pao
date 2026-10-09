@@ -66,7 +66,10 @@
     <!-- ================= HERO ================= -->
     <section class="hero" id="inicio">
       <div class="hero__fundo" aria-hidden="true">
-        <video class="hero__video" muted loop playsinline preload="metadata" poster="assets/img/hero-poster.jpg">
+        <video class="hero__video" muted playsinline preload="auto" poster="assets/img/hero-poster.jpg">
+          <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <video class="hero__video hero__video--reserva" muted playsinline preload="auto">
           <source src="assets/video/hero.mp4" type="video/mp4">
         </video>
       </div>

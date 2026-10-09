@@ -79,15 +79,38 @@
 
   /* ---------- Entrada da hero e vídeo ---------- */
   const video = document.querySelector('.hero__video');
+  // Duas cópias do mesmo vídeo se revezam: quando uma está acabando, a outra
+  // já começa por baixo e a primeira some por cima. A imagem nunca para.
+  const videos = Array.from(document.querySelectorAll('.hero__video'));
   if (video && !menosMovimento) {
+    const FUSAO = 1.2;
+    let atual = 0;
+    let trocando = false;
     video.play().catch(() => { /* sem autoplay, o pôster continua no lugar */ });
-    // Perto do fim, o vídeo se dissolve no primeiro quadro (que fica por
-    // baixo dele) e só reaparece depois de voltar ao início: sem corte seco.
-    const DISSOLVER = 1.4;
-    video.addEventListener('timeupdate', () => {
-      if (!video.duration) return;
-      const falta = video.duration - video.currentTime;
-      video.classList.toggle('is-saindo', falta < DISSOLVER);
+
+    const trocar = () => {
+      const sai = videos[atual];
+      const entra = videos[1 - atual];
+      trocando = true;
+      entra.currentTime = 0;
+      entra.style.transition = 'none';
+      entra.style.opacity = '1';
+      entra.style.zIndex = '1';
+      sai.style.zIndex = '2';
+      entra.play().then(() => {
+        sai.style.transition = `opacity ${FUSAO}s linear`;
+        sai.style.opacity = '0';
+        setTimeout(() => { sai.pause(); atual = 1 - atual; trocando = false; }, FUSAO * 1000 + 100);
+      }).catch(() => { trocando = false; });
+    };
+
+    videos.forEach((v) => {
+      v.addEventListener('timeupdate', () => {
+        if (v !== videos[atual] || trocando || !v.duration || videos.length < 2) return;
+        if (v.duration - v.currentTime < FUSAO + 0.3) trocar();
+      });
+      // Rede de segurança: se a troca não aconteceu, recomeça em vez de parar
+      v.addEventListener('ended', () => { if (v === videos[atual] && !trocando) { v.currentTime = 0; v.play().catch(() => {}); } });
     });
   }
   requestAnimationFrame(() => requestAnimationFrame(() => doc.classList.add('pronto')));
